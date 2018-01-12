@@ -1,7 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android androidConfiguration
 
 dependencies {
-
+    implementation libs.retrofit
+    implementation libs.retrofitRxjavaAdapter
+    implementation libs.retrofitConverterGson
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+    implementation libs.kotlin
 }
