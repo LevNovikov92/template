@@ -21,12 +21,35 @@ android {
             useProguard false
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation project(path: ':api')
+}
+
+dependencies {
+    kapt aptLibs.databinding
+    kapt libs.daggerCompiler
 }
 
 dependencies {
     implementation libs.kotlin
     implementation libs.appcompatV7
     implementation libs.constraintLayout
+
+    implementation libs.retrofit
+    implementation libs.retrofitRxjavaAdapter
+    implementation libs.retrofitConverterGson
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+
+    implementation libs.dagger
+
+    implementation libs.recyclerView
 }
 
 dependencies {

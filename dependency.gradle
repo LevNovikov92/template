@@ -19,6 +19,7 @@ ext {
     playServicesVersion = '11.0.4'
     googleMapsUtilVersion = '0.5'
     gmsGoogleServicesPluginVersion = '3.0.0'
+    recyclerViewVersion = '27.0.2'
 }
 
 ext {
@@ -66,6 +67,7 @@ ext {
             timber                    : "com.jakewharton.timber:timber:$timberVersion",
             leakCanary                : "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion",
             leakCanaryNoOp            : "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion",
+            recyclerView              : "com.android.support:recyclerview-v7:$recyclerViewVersion"
     ]
 
     aptLibs = [

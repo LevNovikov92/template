@@ -11,6 +11,6 @@ import retrofit2.http.GET
 interface GitHubApi {
 
     @GET("users/{user}/repos")
-    fun userReposList(user: String): Single<UserReposListResponse>
+    fun userReposList(user: String): Single<List<UserReposListResponse>>
 
 }
