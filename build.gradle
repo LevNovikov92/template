@@ -1,17 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.0'
+    apply from: 'dependency.gradle'
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath "com.android.tools.build:gradle:$gradlePluginVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
 
@@ -24,4 +22,46 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    androidConfiguration = {
+
+        compileSdkVersion androidCompileSdkVersion
+        buildToolsVersion androidBuildToolsVersion
+
+        defaultConfig {
+
+            vectorDrawables.useSupportLibrary = true
+
+            minSdkVersion androidMinSdkVersion
+            targetSdkVersion androidTargetSdkVersion
+        }
+/*
+
+        lintOptions {
+            abortOnError true
+            absolutePaths false
+            lintConfig file("lint.xml")
+        }
+*/
+
+/*
+        signingConfigs {
+            debug {
+                storeFile file("$rootProject.projectDir/buildsystem/debug.keystore")
+                storePassword "android"
+                keyAlias "androiddebugkey"
+                keyPassword "android"
+            }
+
+            release {
+                storeFile file("$rootProject.projectDir/buildsystem/myteksi-android-prod.keystore")
+                storePassword System.getenv("KEYSTORE_PASSWORD")
+                keyAlias System.getenv("KEY_ALIAS")
+                keyPassword System.getenv("KEY_PASSWORD")
+            }
+        }
+*/
+    }
 }
