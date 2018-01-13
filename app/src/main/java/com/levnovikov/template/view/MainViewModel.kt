@@ -7,6 +7,7 @@ import com.levnovikov.template.R
 import com.levnovikov.template.domain.UserReposRepo
 import com.levnovikov.template.domain.model.UserRepo
 import com.levnovikov.template.view.di.MainScope
+import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
 /**
@@ -31,11 +32,13 @@ class MainViewModelImpl @Inject constructor(
     override val reposList = ObservableField<List<UserRepo>>()
 
     override fun onSearchClick() {
-        lifecycle.subscribeUntilDestroy {
-            userReposRepo.getUserRepos(userName.get())
-                    .subscribe({ list ->
-                        reposList.set(list)
-                    }, { toastUtils.showShortToast(R.string.error_msg) })
+        userName.get()?.let {
+            lifecycle.subscribeUntilDestroy(
+                    userReposRepo.getUserRepos(it)
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe({ list ->
+                                reposList.set(list)
+                            }, { toastUtils.showShortToast(R.string.error_msg) }))
         }
     }
 }

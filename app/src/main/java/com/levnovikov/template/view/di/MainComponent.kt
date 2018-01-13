@@ -3,9 +3,7 @@ package com.levnovikov.template.view.di
 import android.content.Context
 import com.levnovikov.api.di.ApiModule
 import com.levnovikov.core_base.lifecycle.Lifecycle
-import com.levnovikov.core_base.utils.ResourceProvider
 import com.levnovikov.core_base.utils.ResourceProviderModule
-import com.levnovikov.core_base.utils.ToastUtils
 import com.levnovikov.core_base.utils.ToastUtilsModule
 import com.levnovikov.template.data.UserReposRepoImpl
 import com.levnovikov.template.domain.UserReposRepo

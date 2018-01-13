@@ -19,7 +19,7 @@ ext {
     playServicesVersion = '11.0.4'
     googleMapsUtilVersion = '0.5'
     gmsGoogleServicesPluginVersion = '3.0.0'
-    recyclerViewVersion = '27.0.2'
+    recyclerViewVersion = '26.0.2'
 }
 
 ext {

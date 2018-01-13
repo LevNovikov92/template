@@ -3,6 +3,7 @@ package com.levnovikov.api
 import com.levnovikov.api.response.UserReposListResponse
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 /**
  * Created by lev.novikov
@@ -11,6 +12,6 @@ import retrofit2.http.GET
 interface GitHubApi {
 
     @GET("users/{user}/repos")
-    fun userReposList(user: String): Single<List<UserReposListResponse>>
+    fun userReposList(@Path("user") user: String): Single<List<UserReposListResponse>>
 
 }

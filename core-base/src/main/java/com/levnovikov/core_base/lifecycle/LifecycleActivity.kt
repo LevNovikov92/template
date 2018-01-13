@@ -23,16 +23,16 @@ open class LifecycleActivity : AppCompatActivity(), Lifecycle {
 
     override fun eventStream(): Observable<LifecycleEvent> = lifecycleStream
 
-    override fun subscribeUntil(event: LifecycleEvent, disposable: () -> Disposable) {
+    override fun subscribeUntil(event: LifecycleEvent, disposable: Disposable) {
         val compositeDisposable = disposableMap[event]
         if (compositeDisposable != null) {
             disposableMap.put(event, CompositeDisposable())
         }
 
-        disposableMap[event]?.add(disposable.invoke())
+        disposableMap[event]?.add(disposable)
     }
 
-    override fun subscribeUntilDestroy(disposable: () -> Disposable) {
+    override fun subscribeUntilDestroy(disposable: Disposable) {
         subscribeUntil(LifecycleEvent.DESTROY, disposable)
     }
 

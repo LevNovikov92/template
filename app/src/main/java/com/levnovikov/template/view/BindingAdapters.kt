@@ -11,9 +11,9 @@ import com.levnovikov.template.domain.model.UserRepo
  */
 
 @BindingAdapter("bind:main_repos_list")
-fun setData(view: RecyclerView, data: List<UserRepo>) {
+fun setData(view: RecyclerView, data: List<UserRepo>?) {
     val adapter = view.adapter
-    if (adapter != null && adapter is Adapter) {
+    if (data != null && adapter != null && adapter is Adapter) {
         adapter.setData(data)
     }
 }

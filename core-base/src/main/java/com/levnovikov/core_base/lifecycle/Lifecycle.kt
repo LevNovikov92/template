@@ -10,9 +10,9 @@ import io.reactivex.disposables.Disposable
 
 interface Lifecycle {
 
-    fun subscribeUntil(event: LifecycleEvent, disposable: () -> Disposable)
+    fun subscribeUntil(event: LifecycleEvent, disposable: Disposable)
 
-    fun subscribeUntilDestroy(disposable: () -> Disposable)
+    fun subscribeUntilDestroy(disposable: Disposable)
 
     fun eventStream(): Observable<LifecycleEvent>
 }
