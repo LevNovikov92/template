@@ -16,4 +16,5 @@ dependencies {
     implementation libs.rxJava
     implementation libs.rxAndroid
     implementation libs.kotlin
+    implementation libs.appcompatV7
 }
