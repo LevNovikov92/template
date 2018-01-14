@@ -6,6 +6,7 @@ import com.levnovikov.core_base.lifecycle.Lifecycle
 import com.levnovikov.core_base.utils.ResourceProviderModule
 import com.levnovikov.core_base.utils.ToastUtilsModule
 import com.levnovikov.template.data.UserReposRepoImpl
+import com.levnovikov.template.di.AppComponent
 import com.levnovikov.template.domain.UserReposRepo
 import com.levnovikov.template.view.MainActivity
 import com.levnovikov.template.view.MainViewModel
@@ -26,12 +27,9 @@ import javax.inject.Scope
 annotation class MainScope
 
 @MainScope
-@Component(modules = [
+@Component(dependencies = [AppComponent::class], modules = [
     MainComponent.MainBinders::class,
-    MainComponent.MainModule::class,
-    ResourceProviderModule::class,
-    ApiModule::class,
-    ToastUtilsModule::class])
+    MainComponent.MainModule::class])
 interface MainComponent {
 
     @Module

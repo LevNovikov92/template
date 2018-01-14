@@ -12,6 +12,7 @@ import com.levnovikov.core_base.lifecycle.LifecycleActivity
 import com.levnovikov.template.R
 import com.levnovikov.template.databinding.ActivityMainScreenBinding
 import com.levnovikov.template.domain.model.UserRepo
+import com.levnovikov.template.extensions.getAppComponent
 import com.levnovikov.template.view.di.DaggerMainComponent
 import com.levnovikov.template.view.di.MainComponent
 import javax.inject.Inject
@@ -31,6 +32,7 @@ class MainActivity : LifecycleActivity() {
 
     private fun setupDependencyInjection() {
         val component: MainComponent = DaggerMainComponent.builder()
+                .appComponent(getAppComponent())
                 .mainModule(MainComponent.MainModule(this))
                 .build()
         component.inject(this)

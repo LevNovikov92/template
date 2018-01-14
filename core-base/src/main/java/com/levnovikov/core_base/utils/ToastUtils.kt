@@ -5,6 +5,7 @@ import android.widget.Toast
 import dagger.Binds
 import dagger.Module
 import javax.inject.Inject
+import javax.inject.Named
 
 /**
  * Created by lev.novikov
